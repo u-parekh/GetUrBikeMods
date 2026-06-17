@@ -98,44 +98,6 @@ if ($conn->connect_error) {
 
 
 if(isset($_POST['login'])){
-/*if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-
-    if (empty($email) || empty($password)) {
-        echo "Email and password are required.";
-    } else {
-        // Fetch user from the database
-        $stmt = $conn->prepare("SELECT register_id, register_password FROM register WHERE register_email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            // Verify password
-            if (password_verify($password, $row['register_password'])) {
-                $userId = $row['register_id'];
-                echo "Login successful!";
-
-                // Log the login attempt
-                $logStmt = $conn->prepare("INSERT INTO login(user_id) VALUES (?)");
-                $logStmt->bind_param("i", $userId);
-                $logStmt->execute();
-                $logStmt->close();
-            } else {
-                echo "Invalid email or password.";
-            }
-        } else {
-            echo "Invalid email or password.";
-        }
-    
-
-        $stmt->close();
-    }
-}
-}
-$conn->close();*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
